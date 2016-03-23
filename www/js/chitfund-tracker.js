@@ -21,7 +21,7 @@ CFTracker.initialize = function(){
 	    db.transaction(function(transaction){
 	        transaction.executeSql("DROP TABLE chit_master;");
 	        transaction.executeSql("DROP TABLE chit_transaction;");
-	        transaction.executeSql("CREATE TABLE IF NOT EXISTSchit_master (id INTEGER PRIMARY KEY, name VARCHAR, monthly_premium INTEGER, months INTEGER, commission INTEGER);");
+	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_master (id INTEGER PRIMARY KEY, name VARCHAR, monthly_premium INTEGER, months INTEGER, commission INTEGER);");
 	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_transaction (id INTEGER PRIMARY KEY, chit_id INTEGER, bid_amount INTEGER);");
 	        // transaction.executeSql("CREATE TABLE chit_master (id INTEGER PRIMARY KEY, name VARCHAR, monthly_premium INTEGER, months INTEGER, commission INTEGER);");
             // transaction.executeSql("SELECT name FROM sqlite_master WHERE type='table' AND name='chit_master';",
