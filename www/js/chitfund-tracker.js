@@ -27,8 +27,8 @@ CFTracker.initialize = function(){
                 transaction.executeSql("SELECT * from chit_master ",
                     [],
                     successCallback,
-                    function(e){
-                        alert("some error");
+                    function(err){
+                        alert("some error "+err.message);
                     })
             });
             
