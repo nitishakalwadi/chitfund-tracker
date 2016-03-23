@@ -26,16 +26,18 @@ CFTracker.initialize = function(){
             db.transaction(function(transaction){alert(123);
                 transaction.executeSql("SELECT * from chit_master ",
                     [],
-                    function(transaction,results){
+                    successCallback,
+                    function(e){
+                        console.debug("some error")
+                    })
+            });
+            
+            function successCallback(transaction,results){
                         for (var i = 0; i <= results.rows.length; i++) {
                             var amount = results.rows.item(i).amt;
                             alert(amount);
                         }
-                    },
-                    function(e){
-                        console.debug("some error")
-                    })
-            })
+                    }
         });
 	}
 }
