@@ -15,7 +15,7 @@ CFTracker.initialize = function(){
 	
 	function initDatabase(){
 	    CFTracker.db = openDatabase("myApp", 1.0, "App database",200000);
-	    var db = CFT.db;
+	    var db = CFTracker.db;
 	    
 	    //create chit_master table if not exists
 	    db.transaction(function(transaction){
