@@ -20,11 +20,13 @@ CFTracker.initialize = function(){
 	    //create chit_master table if not exists
 	    db.transaction(function(transaction){
             transaction.executeSql("CREATE TABLE chit_master (id INTEGER PRIMARY KEY, amt INTEGER, months INTEGER, note VARCHAR);");
-            transaction.executeSql("CREATE TABLE chit_transaction (id INTEGER PRIMARY KEY, chit_id INTEGER, bid_amount INTEGER);");
-            transaction.executeSql("INSERT INTO chit_master (amt,months,note values (?,?,?);",[123,456,"test"]);
-            transaction.executeSql("INSERT INTO chit_master (amt,months,note) values (111,222,'test');")
+            //transaction.executeSql("CREATE TABLE chit_transaction (id INTEGER PRIMARY KEY, chit_id INTEGER, bid_amount INTEGER);");
+            //transaction.executeSql("INSERT INTO chit_master (amt,months,note values (?,?,?);",[123,456,"test"]);
+            transaction.executeSql("INSERT INTO chit_master (amt,months,note) values (111,222,'test');");
             
-            db.transaction(function(transaction){alert(123);
+        });
+        
+        db.transaction(function(transaction){alert(123);
                 transaction.executeSql("SELECT * from chit_master",
                     [],
                     successCallback,
@@ -39,6 +41,5 @@ CFTracker.initialize = function(){
                             alert(amount);
                         }
                     }
-        });
 	}
 }
