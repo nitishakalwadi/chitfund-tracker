@@ -10,6 +10,12 @@ CFTracker.dashboard.initialize = function(){
 	});
 
 	function init(){
-		
+		initBindings();
+	}
+	
+	function initBindings(){
+	    $('.ui-btn').on('tap', function(){
+	        alert(123);
+	    });
 	}
 }
