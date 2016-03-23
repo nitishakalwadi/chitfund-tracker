@@ -26,7 +26,7 @@ CFTracker.initialize = function(){
                 function(transaction,results){
                     for (var i = 0; i <= results.rows.length; i++) {
                         var table_name = results.rows.item(i).name;
-                        alert(atble_name);
+                        alert(table_name);
                         if(!table_name){
                             transaction.executeSql("CREATE TABLE chit_master (id INTEGER PRIMARY KEY, name VARCHAR, monthly_premium INTEGER, months INTEGER, commission INTEGER);");
                         }
