@@ -24,7 +24,7 @@ CFTracker.initialize = function(){
             transaction.executeSql("INSERT INTO chit_master (amt,months values (?,?);",[123,456]);
             
             db.transaction(function(transaction){
-                transaction.executeSql("SELECT * from expense ",
+                transaction.executeSql("SELECT * from chit_master ",
                     [],
                     function(transaction,results){
                         for (var i = 0; i <= results.rows.length; i++) {
