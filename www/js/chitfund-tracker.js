@@ -28,7 +28,7 @@ CFTracker.initialize = function(){
                     [],
                     successCallback,
                     function(e){
-                        console.debug("some error")
+                        alert("some error");
                     })
             });
             
