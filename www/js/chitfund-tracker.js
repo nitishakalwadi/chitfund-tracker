@@ -19,20 +19,23 @@ CFTracker.initialize = function(){
 	    
 	    //create chit_master table if not exists
 	    db.transaction(function(transaction){
-            transaction.executeSql("SELECT table_name FROM sqlite_master WHERE type='table' AND name='chit_master';",
-                [],
-                function(transaction,results){
-                    for (var i = 0; i <= results.rows.length; i++) {
-                        var table_name = results.rows.item(i).table_name;
-                        if(!table_name){
-                            transaction.executeSql("CREATE TABLE chit_master (id INTEGER PRIMARY KEY, amt INTEGER, month INTEGER, note VARCHAR);");
+            transaction.executeSql("CREATE TABLE chit_master (id INTEGER PRIMARY KEY, amt INTEGER, months INTEGER, note VARCHAR);");
+            transaction.executeSql("CREATE TABLE chit_transaction (id INTEGER PRIMARY KEY, chit_id INTEGER, bid_amount INTEGER);");
+            transaction.executeSql("INSERT INTO chit_master (amt,months values (?,?);",[123,456]);
+            
+            db.transaction(function(transaction){
+                transaction.executeSql("SELECT * from expense ",
+                    [],
+                    function(transaction,results){
+                        for (var i = 0; i <= results.rows.length; i++) {
+                            var amount = results.rows.item(i).amt;
+                            alert(amount);
                         }
-                    }
-                },
-                function(e){
-                    
-                }
-            );
+                    },
+                    function(e){
+                        console.debug("some error")
+                    })
+            })
         });
 	}
 }
