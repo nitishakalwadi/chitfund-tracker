@@ -15,18 +15,7 @@
         
     </head>
     <body>
-        <div data-role="page" id="index">
-            <!-- <div data-role="panel" id="menu-panel" data-position="left" data-display="push">
-                test
-            </div>
-            <a href="#menu-panel">open</a> -->
-            <div data-role="header">
-	            <h1>My Chits</h1>
-	            <a id="addNewChit" href="#addChit" data-icon="plus" class="ui-btn-right" data-transition="flip">Add Chit</a>
-            </div>
-        </div>
-        
-        <div data-role="page" id="addChit">
+        <div data-role="page">
             <div data-role="header">
 	            <h1>Add New Chit</h1>
 	        </div>
@@ -44,14 +33,13 @@
                     <input type="number" name="months" id="months" value=""  />
                 </div>
                 <div data-role="fieldcontain">
-                    <a id="cancel" data-icon="delete" class="ui-btn-left" data-inline="true" data-rel="back" data-role="button">Cancel</a>
-                    <a id="save" data-icon="check" class="ui-btn-right" data-inline="true" data-role="button">Save</a>
+                    <button id="cancel" data-icon="delete" class="ui-btn-left" data-inline="true">Cancel</button>
+                    <button id="save" data-icon="check" class="ui-btn-right" data-inline="true">Save</button>
                 </div>
 	        </div>
         </div>
-        
     </body>
     <script type="text/javascript">
-        CFTracker.initialize();
+        CFTracker.addChit.initialize();
     </script>
 </html>
