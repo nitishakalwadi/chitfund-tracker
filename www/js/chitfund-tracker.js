@@ -41,8 +41,8 @@ CFTracker.initialize = function(){
             // );
             //transaction.executeSql("CREATE TABLE chit_transaction (id INTEGER PRIMARY KEY, chit_id INTEGER, bid_amount INTEGER);");
             //transaction.executeSql("INSERT INTO chit_master (amt,months,note values (?,?,?);",[123,456,"test"]);
-            transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values ('test',111,222,10);");
-            transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values ('test',222,222,10);");
+            //transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values ('test',111,222,10);");
+            //transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values ('test',222,222,10);");
             
         });
         
