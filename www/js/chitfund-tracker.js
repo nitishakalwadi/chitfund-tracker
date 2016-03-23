@@ -25,7 +25,7 @@ CFTracker.initialize = function(){
                     for (var i = 0; i <= results.rows.length; i++) {
                         var table_name = results.rows.item(i).name;
                         if(!table_name){
-                            transaction.executeSql("CREATE TABLE chit_master (id INTEGER PRIMARY KEY, name VARCHAR, monthly_premium INTEGER, months INTEGER);");
+                            //transaction.executeSql("CREATE TABLE chit_master (id INTEGER PRIMARY KEY, name VARCHAR, monthly_premium INTEGER, months INTEGER);");
                         }
                     }
                 },
