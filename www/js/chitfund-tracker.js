@@ -19,13 +19,14 @@ CFTracker.initialize = function(){
 	    
 	    //create chit_master table if not exists
 	    db.transaction(function(transaction){
+	        transaction.executeSql("DROP TABLE chit_master;");
             transaction.executeSql("SELECT name FROM sqlite_master WHERE type='table' AND name='chit_master';",
                 [],
                 function(transaction,results){
                     for (var i = 0; i <= results.rows.length; i++) {
                         var table_name = results.rows.item(i).name;
                         if(!table_name){
-                            //transaction.executeSql("CREATE TABLE chit_master (id INTEGER PRIMARY KEY, name VARCHAR, monthly_premium INTEGER, months INTEGER);");
+                            transaction.executeSql("CREATE TABLE chit_master (id INTEGER PRIMARY KEY, name VARCHAR, monthly_premium INTEGER, months INTEGER, commission INTEGER);");
                         }
                     }
                 },
@@ -35,7 +36,7 @@ CFTracker.initialize = function(){
             );
             //transaction.executeSql("CREATE TABLE chit_transaction (id INTEGER PRIMARY KEY, chit_id INTEGER, bid_amount INTEGER);");
             //transaction.executeSql("INSERT INTO chit_master (amt,months,note values (?,?,?);",[123,456,"test"]);
-            transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months) values ('test',111,222);");
+            transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values ('test',111,222,10);");
             
         });
         
@@ -50,7 +51,7 @@ CFTracker.initialize = function(){
             
             function successCallback(transaction,results){
                         for (var i = 0; i <= results.rows.length; i++) {
-                            var amount = results.rows.item(i).amt;
+                            var amount = results.rows.item(i).monthly_premium;
                             alert(amount);
                         }
                     }
