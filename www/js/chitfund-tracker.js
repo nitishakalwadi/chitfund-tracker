@@ -62,10 +62,10 @@ CFTracker.dashboard.initialize = function(){
         	var markup = "";
         	// markup += "<ul id='dashboardListView' data-role='listview'>";
         	for (var i = 0; i <= results.rows.length; i++) {
-        		var chitname = results.rows.item(i).name;alert(chitname);
-        		var monthly_premium = results.rows.item(i).monthly_premium;alert(monthly_premium);
-        		var months = results.rows.item(i).months;alert(months);alert(months);
-        		var commission = results.rows.item(i).commission;alert(commission);
+        		// var chitname = results.rows.item(i).name;alert(chitname);
+        		// var monthly_premium = results.rows.item(i).monthly_premium;alert(monthly_premium);
+        		// var months = results.rows.item(i).months;alert(months);
+        		// var commission = results.rows.item(i).commission;alert(commission);
         		
         		markup += "<li>";
         		markup += "<a href='#'>test</a>";
@@ -75,7 +75,7 @@ CFTracker.dashboard.initialize = function(){
         	// markup = "hello man";
         	// alert(markup);
         	$("#dashboardList").html(markup);
-        	$( "#dashboardListView" ).listview( "refresh" );
+        	$("#dashboardListView").listview( "refresh" );
         }
 	}
 	
