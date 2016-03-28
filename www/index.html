@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="css/jquery/jquery-mobile-1.4.5.min.css" />
         
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         
         <script type="text/javascript" src="js/jquery/jquery-1.12.2.min.js"></script>
         <script type="text/javascript" src="js/jquery/jquery-mobile-1.4.5.min.js"></script>
@@ -25,6 +25,9 @@
 	            <h1>My Chits</h1>
 	            <a id="addNewChit" href="#addChit" data-icon="plus" class="ui-btn-right" data-transition="flip">Add Chit</a>
             </div>
+            <div id="dashboardList">
+                
+            </div>
         </div>
         
         <div data-role="page" id="addChit">
@@ -45,7 +48,7 @@
                     <input type="number" name="months" id="months" value=""  />
                 </div>
                 <div data-role="fieldcontain">
-                    <label for="commission">No. of months:</label>
+                    <label for="commission">Commission(%):</label>
                     <input type="number" name="commission" id="commission" value=""  />
                 </div>
                 <div data-role="fieldcontain">

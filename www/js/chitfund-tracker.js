@@ -12,11 +12,45 @@ CFTracker.initialize = function(){
 	function init(){
 		clearFormFields();
 		initDatabase();
+		initDashboard();
 		initBtns();
 	}
 	
 	function clearFormFields(){
 		$("#index input").val("");
+	}
+	
+	function initDashboard(){
+		//get all the chits from database
+		var db = CFTracker.db;
+		db.transaction(function(transaction){
+            transaction.executeSql("SELECT * from chit_master",
+                [],
+                populateDashboard,
+                function(err){
+                    alert("some error "+err);
+                })
+        });
+        
+        function populateDashboard(transaction, results){
+        	var markup = "";
+        	markup += "<ul data-role='listview'>";
+        	for (var i = 0; i <= results.rows.length; i++) {
+        		var name = results.rows.item(i).name;
+        		var monthly_premium = results.rows.item(i).monthly_premium;
+        		var months = results.rows.item(i).months;
+        		var commission = results.rows.item(i).commission;
+        		
+        		markup += "<li>";
+        		markup += "<a href='#'>";
+        		markup += name;
+        		markup += "</a>";
+        		markup += "</li>";
+        	}
+        	markup += "</ul>";
+        	
+        	$("#dashboardList").html(markup);
+        }
 	}
 	
 	function initDatabase(){
@@ -64,19 +98,6 @@ CFTracker.initialize = function(){
 			db.transaction(function(transaction){
 	        	transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);", insertArr);
 	    	});
-	    	db.transaction(function(transaction){
-                transaction.executeSql("SELECT * from chit_master",
-                    [],
-                    function successCallback(transaction,results){
-                        for (var i = 0; i <= results.rows.length; i++) {
-                            var amount = results.rows.item(i).monthly_premium;
-                            alert(amount);
-                        }
-                    },
-                    function(err){
-                        alert("some error "+err);
-                    })
-            });
-		});
+	    });
 	}
 }
