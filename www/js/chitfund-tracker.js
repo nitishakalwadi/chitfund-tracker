@@ -10,7 +10,13 @@ CFTracker.initialize = function(){
 	});
 
 	function init(){
+		clearFormFields();
 		initDatabase();
+		initBtns();
+	}
+	
+	function clearFormFields(){
+		$("#index input").val("");
 	}
 	
 	function initDatabase(){
@@ -19,8 +25,8 @@ CFTracker.initialize = function(){
 	    
 	    //create chit_master and chit_transaction table if not exists
 	    db.transaction(function(transaction){
-	        transaction.executeSql("DROP TABLE chit_master");
-	        transaction.executeSql("DROP TABLE chit_transaction");
+	        transaction.executeSql("DROP TABLE IF EXISTS chit_master");
+	        transaction.executeSql("DROP TABLE IF EXISTS chit_transaction");
 	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_master (id INTEGER PRIMARY KEY, name VARCHAR, monthly_premium INTEGER, months INTEGER, commission INTEGER);");
 	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_transaction (id INTEGER PRIMARY KEY, chit_id INTEGER, bid_amount INTEGER);");
 	    });
@@ -44,5 +50,33 @@ CFTracker.initialize = function(){
                     })
             });
             
+	}
+	
+	function initBtns(){
+		$("#save").on("tap", function(){
+			var chitname = $("#chitname").val();
+			var monthlyPremium = $("#monthlyPremium").val();
+			var months = $("#months").val();
+			var commission = $("#commission").val();
+			var insertArr = new Array(chitname, monthlyPremium, months, commission);
+			
+			var db = CFTracker.db;
+			db.transaction(function(transaction){
+	        	transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);", insertArr);
+	    	});
+	    	db.transaction(function(transaction){
+                transaction.executeSql("SELECT * from chit_master",
+                    [],
+                    function successCallback(transaction,results){
+                        for (var i = 0; i <= results.rows.length; i++) {
+                            var amount = results.rows.item(i).monthly_premium;
+                            alert(amount);
+                        }
+                    },
+                    function(err){
+                        alert("some error "+err);
+                    })
+            });
+		});
 	}
 }
