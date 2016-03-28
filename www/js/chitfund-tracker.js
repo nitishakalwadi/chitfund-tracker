@@ -113,7 +113,7 @@ CFTracker.addChit.initialize = function(){
 	}
 	
 	function initBtns(){
-		$("#save").on("tap", function(){alert(123);
+		$("#save").on("click", function(){alert(123);
 			// var chitname = $("#chitname").val();
 			// var monthlyPremium = $("#monthlyPremium").val();
 			// var months = $("#months").val();
