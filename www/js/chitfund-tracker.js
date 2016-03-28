@@ -69,7 +69,7 @@ CFTracker.dashboard.initialize = function(){
         		//alert(markup);
         		markup += "<li>";
         		// markup += "<a href='#'>"+name+"</a>";
-        		markup += "<a href='#'>test</a>";
+        		markup += "<a href='#'>"+results.rows.item(i).name+"</a>";
         		markup += "</li>";
         		//alert(markup);
         	}
