@@ -103,7 +103,7 @@ CFTracker.addChit.initialize = function(){
 		init();
 	});
 
-	function init(){
+	function init(){alert(456);
 		clearFormFields();
 		initBtns();
 	}
