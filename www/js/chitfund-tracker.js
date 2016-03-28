@@ -124,6 +124,21 @@ CFTracker.addChit.initialize = function(){
 			db.transaction(function(transaction){
 	        	transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);", insertArr);
 	    	});
+	    	
+	    	db.transaction(function(transaction){
+                transaction.executeSql("SELECT * from chit_master",
+                    [],
+                    function successCallback(transaction,results){
+                        for (var i = 0; i <= results.rows.length; i++) {
+                            var amount = results.rows.item(i).monthly_premium;
+                            alert(amount);
+                        }
+                    },
+                    function(err){
+                        alert("some error "+err);
+                    })
+            });
+            
 	    });
 	}
 }
