@@ -8,7 +8,7 @@ CFTracker.dashboard.initialize = function(){
 		init();
 	});
 
-	function init(){
+	function init(){alert(123);
 		initDatabase();
 		initDashboard();
 	}
@@ -55,7 +55,7 @@ CFTracker.dashboard.initialize = function(){
                 populateDashboard,	//success callback
                 function(err){
                     alert("some error "+err);
-                })
+                });
         });
         
         function populateDashboard(transaction, results){
@@ -98,7 +98,7 @@ CFTracker.dashboard.initialize = function(){
 CFTracker = window.CFTracker || {};
 CFTracker.data = CFTracker.data || {};
 CFTracker.addChit = CFTracker.addChit || {};
-CFTracker.addChit.initialize = function(){
+CFTracker.addChit.initialize = function(){alert("init");
     $(function() {
 		init();
 	});
