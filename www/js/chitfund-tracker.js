@@ -26,8 +26,8 @@ CFTracker.dashboard.initialize = function(){
 	    });
 	    
 	    db.transaction(function(transaction){
-	        transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",["testname",1000,1,10]);
-	        transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",["testname",2000,1,10]);
+	        //transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",["testname",1000,1,10]);
+	        //transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",["testname",2000,1,10]);
 	    });
         
         // db.transaction(function(transaction){
@@ -119,12 +119,13 @@ CFTracker.addChit.initialize = function(){
 			var months = $("#months").val();
 			var commission = $("#commission").val();
 			var insertArr = new Array(chitname, monthlyPremium, months, commission);
+			alert(insertArr[0]);alert(insertArr[1]);alert(insertArr[2]);alert(insertArr[3]);
 			
 			//CFTracker.db = openDatabase("myApp", 1.0, "App database",200000);
 			var db = openDatabase("myApp", 1.0, "App database",200000);
-			db.transaction(function(transaction){
-	        	transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);", insertArr);
-	    	});
+			// db.transaction(function(transaction){
+	  //      	transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);", insertArr);
+	  //  	});
 	    	
 	    	db.transaction(function(transaction){
                 transaction.executeSql("SELECT * from chit_master",
