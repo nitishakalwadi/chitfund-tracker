@@ -36,15 +36,15 @@ CFTracker.initialize = function(){
         function populateDashboard(transaction, results){
         	var markup = "";
         	markup += "<ul data-role='listview'>";
-        	for (var i = 0; i <= results.rows.length; i++) {$("#dashboardList").html(i);
+        	for (var i = 0; i <= results.rows.length; i++) {
         		var name = results.rows.item(i).name;
         		var monthly_premium = results.rows.item(i).monthly_premium;
         		var months = results.rows.item(i).months;
         		var commission = results.rows.item(i).commission;
-        		
+        		alert(name);
         		markup += "<li>";
         		markup += "<a href='#'>";
-        		markup += name;
+        		markup += "test";
         		markup += "</a>";
         		markup += "</li>";
         	}
