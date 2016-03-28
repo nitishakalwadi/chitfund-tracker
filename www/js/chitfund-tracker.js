@@ -11,6 +11,7 @@ CFTracker.initialize = function(){
 
 	function init(){
 		clearFormFields();
+		$("#dashboardList").html("hello");
 		initDatabase();
 		initDashboard();
 		initBtns();
