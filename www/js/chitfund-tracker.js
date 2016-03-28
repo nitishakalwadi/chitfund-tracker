@@ -114,12 +114,12 @@ CFTracker.addChit.initialize = function(){
 	
 	function initBtns(){
 		$("#save").on("tap", function(){alert(123);
-			var chitname = $("#chitname").val();
-			var monthlyPremium = $("#monthlyPremium").val();
-			var months = $("#months").val();
-			var commission = $("#commission").val();
-			var insertArr = new Array(chitname, monthlyPremium, months, commission);
-			alert(insertArr[0]);alert(insertArr[1]);alert(insertArr[2]);alert(insertArr[3]);
+			// var chitname = $("#chitname").val();
+			// var monthlyPremium = $("#monthlyPremium").val();
+			// var months = $("#months").val();
+			// var commission = $("#commission").val();
+			// var insertArr = new Array(chitname, monthlyPremium, months, commission);
+			//alert(insertArr[0]);alert(insertArr[1]);alert(insertArr[2]);alert(insertArr[3]);
 			
 			//CFTracker.db = openDatabase("myApp", 1.0, "App database",200000);
 			// var db = openDatabase("myApp", 1.0, "App database",200000);
