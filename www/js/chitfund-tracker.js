@@ -1,10 +1,9 @@
 $.ajaxSetup({ cache: false });
 
 var CFTracker = window.CFTracker || {};
-
 CFTracker.data = CFTracker.data || {};
-
-CFTracker.initialize = function(){
+CFTracker.dashboard = CFTracker.dashboard || {};
+CFTracker.dashboard.initialize = function(){
     $(function() {
 		init();
 	});
@@ -100,5 +99,19 @@ CFTracker.initialize = function(){
 	        	transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);", insertArr);
 	    	});
 	    });
+	}
+}
+
+
+CFTracker = window.CFTracker || {};
+CFTracker.data = CFTracker.data || {};
+CFTracker.addChit = CFTracker.addChit || {};
+CFTracker.addChit.initialize = function(){
+    $(function() {
+		init();
+	});
+
+	function init(){
+		
 	}
 }
