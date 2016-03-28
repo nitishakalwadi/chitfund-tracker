@@ -74,7 +74,7 @@ CFTracker.dashboard.initialize = function(){
         	markup += "</ul>";
         	// markup = "hello man";
         	// alert(markup);
-        	$("#dashboardList").html(markup);
+        	$("#dashboardListView").html(markup);
         	$("#dashboardListView").listview( "refresh" );
         }
 	}
