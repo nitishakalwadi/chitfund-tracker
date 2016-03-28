@@ -39,7 +39,7 @@
     // function onDeviceReady(){
     //     CFTracker.dashboard.initialize();
     // }
-    $(document).ready(function() {alert("start");
+    $(document).on("pageshow" ,function() {alert("start");
         CFTracker.dashboard.initialize();
     });
     </script>
