@@ -109,38 +109,10 @@ CFTracker.addChit.initialize = function(){
 	}
 	
 	function clearFormFields(){
-		$("#index input").val("");
+		$("#index input").val("");alert("here");
 	}
 	
 	function initBtns(){
-		$("#save").on("click", function(){alert(123);
-			// var chitname = $("#chitname").val();
-			// var monthlyPremium = $("#monthlyPremium").val();
-			// var months = $("#months").val();
-			// var commission = $("#commission").val();
-			// var insertArr = new Array(chitname, monthlyPremium, months, commission);
-			//alert(insertArr[0]);alert(insertArr[1]);alert(insertArr[2]);alert(insertArr[3]);
-			
-			//CFTracker.db = openDatabase("myApp", 1.0, "App database",200000);
-			// var db = openDatabase("myApp", 1.0, "App database",200000);
-			// db.transaction(function(transaction){
-	  //      	transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);", insertArr);
-	  //  	});
-	    	
-	    	// db.transaction(function(transaction){
-      //          transaction.executeSql("SELECT * from chit_master",
-      //              [],
-      //              function successCallback(transaction,results){
-      //                  for (var i = 0; i <= results.rows.length; i++) {
-      //                      var amount = results.rows.item(i).monthly_premium;
-      //                      alert(amount);
-      //                  }
-      //              },
-      //              function(err){
-      //                  alert("some error "+err);
-      //              })
-      //      });
-            
-	    });
+		alert(123);
 	}
 }
