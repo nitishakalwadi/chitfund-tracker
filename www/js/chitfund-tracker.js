@@ -26,8 +26,8 @@ CFTracker.dashboard.initialize = function(){
 	    });
 	    
 	    db.transaction(function(transaction){
-	        transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",["name",1000,1,10]);
-	        transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",["name",2000,1,10]);
+	        transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",["testname",1000,1,10]);
+	        transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",["testname",2000,1,10]);
 	    });
         
         // db.transaction(function(transaction){
