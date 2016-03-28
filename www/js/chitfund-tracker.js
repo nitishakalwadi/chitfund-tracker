@@ -69,14 +69,16 @@ CFTracker.dashboard.initialize = function(){
         		//alert(markup);
         		markup += "<li>";
         		// markup += "<a href='#'>"+name+"</a>";
-        		markup += "<a href='#'>"+results.rows.item(i).name+"</a>";
+        		markup += "<a href='#'>test</a>";
         		markup += "</li>";
+        		
+        		$("#dashboardList").append( results.rows.item(i).name );
         		//alert(markup);
         	}
         	// markup = "hello man";
-        	 
-        	$("#dashboardListView").html(markup);
-        	$("#dashboardListView").listview( "refresh" );
+        	
+        	//$("#dashboardListView").html(markup);
+        	//$("#dashboardListView").listview( "refresh" );
         }
 	}
 	
