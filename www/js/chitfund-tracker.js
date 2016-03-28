@@ -62,7 +62,7 @@ CFTracker.dashboard.initialize = function(){
         	var markup = "";
         	// markup += "<ul id='dashboardListView' data-role='listview'>";
         	for (var i = 0; i <= results.rows.length; i++) {
-        		var row = results.rows.item(i);
+        		// var row = results.rows.item(i);
         		// var name = results.rows.item(i).name;alert(name);alert(typeof name);
         		// var monthly_premium = results.rows.item(i).monthly_premium;alert(monthly_premium);
         		// var months = results.rows.item(i).months;alert(months);
