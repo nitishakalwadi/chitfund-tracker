@@ -120,6 +120,7 @@ CFTracker.addChit.initialize = function(){
 			var commission = $("#commission").val();
 			var insertArr = new Array(chitname, monthlyPremium, months, commission);
 			
+			CFTracker.db = openDatabase("myApp", 1.0, "App database",200000);
 			var db = CFTracker.db;
 			db.transaction(function(transaction){
 	        	transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);", insertArr);
