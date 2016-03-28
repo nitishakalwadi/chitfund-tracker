@@ -68,7 +68,8 @@ CFTracker.dashboard.initialize = function(){
         		// var commission = results.rows.item(i).commission;alert(commission);
         		alert(markup);
         		markup += "<li>";
-        		markup += "<a href='#'>"+name+"</a>";
+        		// markup += "<a href='#'>"+name+"</a>";
+        		markup += "<a href='#'>test</a>";
         		markup += "</li>";
         		alert(markup);
         	}
