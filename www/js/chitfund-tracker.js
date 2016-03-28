@@ -60,21 +60,22 @@ CFTracker.dashboard.initialize = function(){
         
         function populateDashboard(transaction, results){
         	var markup = "";
-        	// markup += "<ul data-role='listview'>";
+        	markup += "<ul data-role='listview'>";
         	for (var i = 0; i <= results.rows.length; i++) {
         		// var name = results.rows.item(i).name;
         		// var monthly_premium = results.rows.item(i).monthly_premium;
         		// var months = results.rows.item(i).months;
         		// var commission = results.rows.item(i).commission;
         		
-        		// markup += "<li>";
-        		// markup += "<a href='#'>";
-        		// markup += "test";
-        		// markup += "</a>";
-        		// markup += "</li>";
+        		markup += "<li>";
+        		markup += "<a href='#'>";
+        		markup += "test";
+        		markup += "</a>";
+        		markup += "</li>";
         	}
-        	// markup += "</ul>";
-        	markup = "hello man";
+        	markup += "</ul>";
+        	// markup = "hello man";
+        	alert(markup);
         	$("#dashboardList").html(markup);
         }
 	}
