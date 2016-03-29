@@ -81,8 +81,8 @@ CFTracker.dashboard.initialize = function(){
 	
 	function initDashboardListTap(){
 		$("#dashboardListView").unbind().on("tap", "li", function(){
-			//var chitId = $(this).data("chit-id");alert(chitId);
-			// localStorage.setItem("chitId", chitId);
+			var chitId = $(this).data("chit-id");alert(chitId);
+			CFTracker.data.chitId = chitId;
 			$.mobile.navigate( "#chitDetails", { transition : "flip"});
 		});
 		
@@ -178,8 +178,7 @@ CFTracker.chitDetails.initialize = function(){
 	});
 
 	function init(){
-		alert("hello");
-		// var id = localStorage.getItem("chitId");
-		// $("#testid").html(id);
+		alert(CFTracker.data.chitId);
+		
 	}
 }
