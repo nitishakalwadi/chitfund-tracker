@@ -216,16 +216,16 @@ CFTracker.chitDetails.initialize = function(){
 	}
 	
 	function initDialog(){
-		// $("#addBidDialog .main").html("");
+		$("#addBidDialog .main").html("");
 		
 		// var data = CFTracker.data.chitMasterData;
-		// var markup = "";
-		// markup += "<div data-role='fieldcontain'>";
-		// markup += "Chit Name: " + data['chitname'];
-		// markup += "</div>";
-		// markup += "<div data-role='fieldcontain'>";
-		// markup += "Monthly Premium: " + data['monthly_premium'];
-		// markup += "</div>";
+		var markup = "";
+		markup += "<div data-role='fieldcontain'>";
+		markup += "Chit Name: " + "test name";//data['chitname'];
+		markup += "</div>";
+		markup += "<div data-role='fieldcontain'>";
+		markup += "Monthly Premium: " + "100";//data['monthly_premium'];
+		markup += "</div>";
 		
 		$("#addBidDialog .main").append("test");
 	}
