@@ -179,7 +179,7 @@ CFTracker.chitDetails.initialize = function(){
 
 	function init(){
 		initData();
-		
+		initDialog();
 	}
 	
 	function initData(){
@@ -212,5 +212,11 @@ CFTracker.chitDetails.initialize = function(){
 			
 			$("#chitDetailsDiv").html(markup);
 		}
+	}
+	
+	function initDialog(){
+		$( "#addBid" ).dialog({
+  			closeBtn: "right"
+		});
 	}
 }
