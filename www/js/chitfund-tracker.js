@@ -179,7 +179,6 @@ CFTracker.chitDetails.initialize = function(){
 
 	function init(){
 		initData();
-		initDialog();
 	}
 	
 	function initData(){
