@@ -218,13 +218,13 @@ CFTracker.chitDetails.initialize = function(){
 	function initDialog(){
 		$("#addBidDialog .main").html("");
 		
-		// var data = CFTracker.data.chitMasterData;
+		var data = CFTracker.data.chitMasterData;
 		var markup = "";
 		markup += "<div data-role='fieldcontain'>";
-		markup += "Chit Name: " + "test name";//data['chitname'];
+		markup += "Chit Name: " + data['chitname'];
 		markup += "</div>";
 		markup += "<div data-role='fieldcontain'>";
-		markup += "Monthly Premium: " + "100";//data['monthly_premium'];
+		markup += "Monthly Premium: " + data['monthly_premium'];
 		markup += "</div>";
 		
 		$("#addBidDialog .main").append(markup);
