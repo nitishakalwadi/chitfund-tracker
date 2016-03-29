@@ -210,7 +210,7 @@ CFTracker.chitDetails.initialize = function(){
 			markup += "<div>Months: " + data['months'] + "</div>";
 			markup += "<div>Commission: " + data['commission'] + "</div>";
 			
-			$("#chitDetailsTable").html(markup);
+			$("#chitDetailsDiv").html(markup);
 		}
 	}
 }
