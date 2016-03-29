@@ -147,9 +147,9 @@ CFTracker.addChit.initialize = function(){
 				var db = CFTracker.db;
 				db.transaction(function(transaction){
 					transaction.executeSql("INSERT INTO chit_master (chitname,monthly_premium,months,commission) values (?,?,?,?);",insertArr);
-				// });
+				});
 				// $.mobile.navigate( "#index");
-			}
+			// }
 		});
 	}
 }
