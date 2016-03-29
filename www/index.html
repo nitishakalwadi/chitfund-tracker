@@ -39,8 +39,11 @@
     // function onDeviceReady(){
     //     CFTracker.dashboard.initialize();
     // }
-    $(document).on("pageshow", "#index", function() {alert("start");
+    $(document).on("pageshow", "#index", function() {
         CFTracker.dashboard.initialize();
+    });
+    $(document).on("pageshow", "#addChit", function() {
+        CFTracker.addChit.initialize();
     });
     </script>
 </html>

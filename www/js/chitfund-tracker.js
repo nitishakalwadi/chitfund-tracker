@@ -8,7 +8,7 @@ CFTracker.dashboard.initialize = function(){
 		init();
 	});
 
-	function init(){alert(123);
+	function init(){
 		initDatabase();
 		initDashboard();
 	}
@@ -98,21 +98,23 @@ CFTracker.dashboard.initialize = function(){
 CFTracker = window.CFTracker || {};
 CFTracker.data = CFTracker.data || {};
 CFTracker.addChit = CFTracker.addChit || {};
-CFTracker.addChit.initialize = function(){alert("init");
+CFTracker.addChit.initialize = function(){
     $(function() {
 		init();
 	});
 
-	function init(){alert(456);
+	function init(){
 		clearFormFields();
 		initBtns();
 	}
 	
 	function clearFormFields(){
-		$("#index input").val("");alert("here");
+		$("#index input").val("");
 	}
 	
 	function initBtns(){
-		alert(123);
+		$("#save").on("tap", function(){
+			alert(123);
+		});
 	}
 }
