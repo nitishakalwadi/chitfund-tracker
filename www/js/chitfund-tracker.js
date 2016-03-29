@@ -19,15 +19,15 @@ CFTracker.dashboard.initialize = function(){
 	    
 	    //create chit_master and chit_transaction table if not exists
 	    db.transaction(function(transaction){
-	        //transaction.executeSql("DROP TABLE IF EXISTS chit_master");
-	        //transaction.executeSql("DROP TABLE IF EXISTS chit_transaction");
-	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_master (id INTEGER PRIMARY KEY, name VARCHAR, monthly_premium INTEGER, months INTEGER, commission INTEGER);");
+	        transaction.executeSql("DROP TABLE IF EXISTS chit_master");
+	        transaction.executeSql("DROP TABLE IF EXISTS chit_transaction");
+	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_master (id INTEGER PRIMARY KEY, chitname VARCHAR, monthly_premium INTEGER, months INTEGER, commission INTEGER);");
 	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_transaction (id INTEGER PRIMARY KEY, chit_id INTEGER, bid_amount INTEGER);");
 	    });
 	    
 	    db.transaction(function(transaction){
-	        //transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",["testname",1000,1,10]);
-	        //transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",["testname",2000,1,10]);
+	        //transaction.executeSql("INSERT INTO chit_master (chitname,monthly_premium,months,commission) values (?,?,?,?);",["testname",1000,1,10]);
+	        //transaction.executeSql("INSERT INTO chit_master (chitname,monthly_premium,months,commission) values (?,?,?,?);",["testname",2000,1,10]);
 	    });
         
         // db.transaction(function(transaction){
@@ -70,7 +70,7 @@ CFTracker.dashboard.initialize = function(){
         function addListItem(data){
         	var markup = "";
         	markup += "<li>";
-        	markup += "<a href='#'>"+ data['name'] +"</a>";
+        	markup += "<a href='#'>"+ data['chitname'] +"</a>";
         	markup += "</li>";
         	
         	$("#dashboardListView").append(markup);
@@ -100,15 +100,15 @@ CFTracker.addChit.initialize = function(){
 	
 	function initBtns(){
 		$("#save").on("tap", function(){
-			var name = $("#name").val();
+			var chitname = $("#chitname").val();
 			var monthly_premium = $("#monthlyPremium").val();
 			var months = $("#months").val();
 			var commission = $("#commission").val();
-			var insertArr = new Array(name, monthly_premium, months, commission);
+			var insertArr = [chitname, monthly_premium, months, commission];
 			
 			var db = CFTracker.db;
 			db.transaction(function(transaction){
-				transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",insertArr);
+				transaction.executeSql("INSERT INTO chit_master (chitname,monthly_premium,months,commission) values (?,?,?,?);",insertArr);
 			});
 		});
 	}
