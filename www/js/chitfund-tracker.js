@@ -198,7 +198,6 @@ CFTracker.chitDetails.initialize = function(){
 		function populateMasterData(transaction, results){
 			for (var i = 0; i <= results.rows.length; i++) {
         		var row = results.rows.item(i);
-        		CFTracker.data.chitMasterData = row;
         		addMasterData(row);
         		
         	}
@@ -248,8 +247,7 @@ CFTracker.addBidDialog.initialize = function(){
 	function initDialog(transaction, results){
 		for (var i = 0; i <= results.rows.length; i++) {
        		var row = results.rows.item(i);
-       		CFTracker.data.chitMasterData = row;
-        	initDialogData(row);
+       		initDialogData(row);
         		
         }
         	
