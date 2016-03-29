@@ -11,6 +11,7 @@ CFTracker.dashboard.initialize = function(){
 	function init(){
 		initDatabase();
 		initDashboard();
+		initDashboardListTap();
 	}
 	
 	function initDatabase(){
@@ -69,13 +70,21 @@ CFTracker.dashboard.initialize = function(){
         
         function addListItem(data){
         	var markup = "";
-        	markup += "<li>";
+        	markup += "<li data-chit-id='"+data[id]+"'>";
         	markup += "<a href='#'>"+ data['chitname'] +"</a>";
         	markup += "</li>";
         	
         	$("#dashboardListView").append(markup);
         	$("#dashboardListView").listview( "refresh" );
         }
+	}
+	
+	function initDashboardListTap(){
+		$("#dashboardListView").on("tap", "li", function(){
+			var chitId = $(this).data("chit-id");
+			localStorage.setItem("chitId", chitId);
+			$.mobile.navigate( "#chitDetails", { transition : "flip"});
+		});
 	}
 	
 }
@@ -148,8 +157,24 @@ CFTracker.addChit.initialize = function(){
 				db.transaction(function(transaction){
 					transaction.executeSql("INSERT INTO chit_master (chitname,monthly_premium,months,commission) values (?,?,?,?);",insertArr);
 				});
-				$.mobile.navigate( "#index", { transition : "flip"});
+				//$.mobile.navigate( "#index", { transition : "flip"});
+				history.back();
 			// }
 		});
+	}
+}
+
+
+CFTracker = window.CFTracker || {};
+CFTracker.data = CFTracker.data || {};
+CFTracker.chitDetails = CFTracker.chitDetails || {};
+CFTracker.chitDetails.initialize = function(){
+    $(function() {
+		init();
+	});
+
+	function init(){
+		var id = localStorage.getItem("chitId");
+		$("#testid").html(id);
 	}
 }
