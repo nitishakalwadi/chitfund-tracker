@@ -201,6 +201,7 @@ CFTracker.chitDetails.initialize = function(){
         		var row = results.rows.item(i);
         		CFTracker.data.chitMasterData = row;
         		addMasterData(row);
+        		
         	}
 		}
 		
@@ -215,10 +216,50 @@ CFTracker.chitDetails.initialize = function(){
 		}
 	}
 	
-	function initDialog(){
+}
+
+
+CFTracker = window.CFTracker || {};
+CFTracker.data = CFTracker.data || {};
+CFTracker.chitDetails = CFTracker.chitDetails || {};
+CFTracker.chitDetails.initialize = function(){
+    $(function() {
+		init();
+	});
+
+	function init(){
+		initData();
+	}
+	
+	function initData(){
+		var db = CFTracker.db;
+		var chitId = CFTracker.data.chitId;
+		
+		var sql = "SELECT * from chit_master where id = " + chitId;
+		db.transaction(function(transaction){
+			transaction.executeSql(sql, 
+				[], 
+				initDialog, 
+				function(err){
+                    alert("some error "+err);
+                });
+		});
+	}
+	
+	function initDialog(transaction, results){
+		for (var i = 0; i <= results.rows.length; i++) {
+       		var row = results.rows.item(i);
+       		CFTracker.data.chitMasterData = row;
+        	initDialogData(row);
+        		
+        }
+        	
+		
+	}
+	
+	function initDialogData(data){
 		$("#addBidDialog .main").html("");
 		
-		var data = CFTracker.data.chitMasterData;
 		var markup = "";
 		markup += "<div data-role='fieldcontain'>";
 		markup += "Chit Name: " + data['chitname'];
