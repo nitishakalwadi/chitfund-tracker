@@ -19,8 +19,8 @@ CFTracker.dashboard.initialize = function(){
 	    
 	    //create chit_master and chit_transaction table if not exists
 	    db.transaction(function(transaction){
-	        transaction.executeSql("DROP TABLE IF EXISTS chit_master");
-	        transaction.executeSql("DROP TABLE IF EXISTS chit_transaction");
+	        //transaction.executeSql("DROP TABLE IF EXISTS chit_master");
+	        //transaction.executeSql("DROP TABLE IF EXISTS chit_transaction");
 	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_master (id INTEGER PRIMARY KEY, chitname VARCHAR, monthly_premium INTEGER, months INTEGER, commission INTEGER);");
 	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_transaction (id INTEGER PRIMARY KEY, chit_id INTEGER, bid_amount INTEGER);");
 	    });
