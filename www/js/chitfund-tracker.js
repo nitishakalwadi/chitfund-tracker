@@ -91,7 +91,7 @@ CFTracker.addChit.initialize = function(){
 
 	function init(){
 		clearFormFields();
-		initValidation();
+		// initValidation();
 		initBtns();
 	}
 	
@@ -99,41 +99,41 @@ CFTracker.addChit.initialize = function(){
 		$("#index input").val("");
 	}
 	
-	function initValidation(){
-		var validationRules = {
-			chitname: {
-				required: true,
-				maxlength: 128
-			},
-			monthlyPremium: {
-				required: true,
-				maxlength: 32,
-				number: true
-			},
-			months: {
-				required: true,
-				maxlength: 32,
-				number: true
-			},
-			commission: {
-				required: true,
-				maxlength: 32,
-				number: true
-			}
-		};
+	// function initValidation(){
+	// 	var validationRules = {
+	// 		chitname: {
+	// 			required: true,
+	// 			maxlength: 128
+	// 		},
+	// 		monthlyPremium: {
+	// 			required: true,
+	// 			maxlength: 32,
+	// 			number: true
+	// 		},
+	// 		months: {
+	// 			required: true,
+	// 			maxlength: 32,
+	// 			number: true
+	// 		},
+	// 		commission: {
+	// 			required: true,
+	// 			maxlength: 32,
+	// 			number: true
+	// 		}
+	// 	};
 		
-		var formValidator = $("#addchitForm").validate({
-			rules: validationRules,
-			ignore: [], //allow hidden fields to be validated
-			onsubmit: false,
-			errorPlacement: "",
-			errorElement: "error",
-			errorClass: "invalid",
-			validClass: "valid",
-			highlight: "",
-			unhighlight: ""
-		});
-	}
+	// 	var formValidator = $("#addchitForm").validate({
+	// 		rules: validationRules,
+	// 		ignore: [], //allow hidden fields to be validated
+	// 		onsubmit: false,
+	// 		errorPlacement: "",
+	// 		errorElement: "error",
+	// 		errorClass: "invalid",
+	// 		validClass: "valid",
+	// 		highlight: "",
+	// 		unhighlight: ""
+	// 	});
+	// }
 	
 	function initBtns(){
 		$("#save").on("tap", function(){
@@ -143,12 +143,12 @@ CFTracker.addChit.initialize = function(){
 			var commission = $("#commission").val();
 			var insertArr = [chitname, monthly_premium, months, commission];
 			
-			if( $('#addchitForm').valid() ){
+			//if( $('#addchitForm').valid() ){
 				var db = CFTracker.db;
 				db.transaction(function(transaction){
 					transaction.executeSql("INSERT INTO chit_master (chitname,monthly_premium,months,commission) values (?,?,?,?);",insertArr);
-				});
-				$.mobile.navigate( "#index");
+				// });
+				// $.mobile.navigate( "#index");
 			}
 		});
 	}
