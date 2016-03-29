@@ -70,7 +70,7 @@ CFTracker.dashboard.initialize = function(){
         
         function addListItem(data){
         	var markup = "";
-        	markup += "<li data-chit-id='"+data[id]+"'>";
+        	markup += "<li data-chit-id='"+data['id']+"'>";
         	markup += "<a href='#'>"+ data['chitname'] +"</a>";
         	markup += "</li>";
         	
