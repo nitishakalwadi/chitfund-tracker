@@ -59,26 +59,12 @@ CFTracker.dashboard.initialize = function(){
         });
         
         function populateDashboard(transaction, results){
-        	var markup = "";
-        	// markup += "<ul id='dashboardListView' data-role='listview'>";
+        	$("#dashboardListView").html("");
+        	$("#dashboardListView").listview( "refresh" );
         	for (var i = 0; i <= results.rows.length; i++) {
         		var row = results.rows.item(i);
         		addListItem(row);
-        		// var name = results.rows.item(i).name;alert(name);alert(typeof name);
-        		// var monthly_premium = results.rows.item(i).monthly_premium;alert(monthly_premium);
-        		// var months = results.rows.item(i).months;alert(months);
-        		// var commission = results.rows.item(i).commission;alert(commission);
-        		
-        		// markup += "<li>";
-        		// markup += "<a href='#'>"+ "testlist" +"</a>";
-        		// markup += "</li>";
-        		// // markup += "test<br/>";
-        		
         	}
-        	// markup = "hello man";
-        	// $("#dashboardList").html(markup);
-        	// $("#dashboardListView").html(markup);
-        	// $("#dashboardListView").listview( "refresh" );
         }
         
         function addListItem(data){
