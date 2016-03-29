@@ -227,6 +227,6 @@ CFTracker.chitDetails.initialize = function(){
 		// markup += "Monthly Premium: " + data['monthly_premium'];
 		// markup += "</div>";
 		
-		// $("#addBidDialog .main").append(markup);
+		$("#addBidDialog .main").append("test");
 	}
 }
