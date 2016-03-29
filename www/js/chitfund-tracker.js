@@ -83,7 +83,7 @@ CFTracker.dashboard.initialize = function(){
 		$("#dashboardListView").on("tap", "li", function(){
 			var chitId = $(this).data("chit-id");alert(chitId);
 			// localStorage.setItem("chitId", chitId);
-			$.mobile.navigate( "#chitDetails", { transition : "flip"});
+			$.mobile.changePage( "#chitDetails", { transition : "flip"});
 		});
 	}
 	
