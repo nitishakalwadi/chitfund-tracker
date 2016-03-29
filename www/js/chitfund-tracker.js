@@ -100,7 +100,16 @@ CFTracker.addChit.initialize = function(){
 	
 	function initBtns(){
 		$("#save").on("tap", function(){
-			alert(123);
+			var name = $("#name").val();
+			var monthly_premium = $("#monthlyPremium").val();
+			var months = $("#months").val();
+			var commission = $("#commission").val();
+			var insertArr = new Array(name, monthly_premium, months, commission);
+			
+			var db = CFTracker.db;
+			db.transaction(function(transaction){
+				transaction.executeSql("INSERT INTO chit_master (name,monthly_premium,months,commission) values (?,?,?,?);",insertArr);
+			});
 		});
 	}
 }
