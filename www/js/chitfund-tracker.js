@@ -85,6 +85,10 @@ CFTracker.dashboard.initialize = function(){
 			// localStorage.setItem("chitId", chitId);
 			$.mobile.changePage( "#chitDetails");
 		});
+		
+		$("#dashboardListView").unbind().on("taphold", "li", function(){
+			alert("taphold");
+		});
 	}
 	
 }
