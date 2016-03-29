@@ -221,8 +221,8 @@ CFTracker.chitDetails.initialize = function(){
 
 CFTracker = window.CFTracker || {};
 CFTracker.data = CFTracker.data || {};
-CFTracker.chitDetails = CFTracker.chitDetails || {};
-CFTracker.chitDetails.initialize = function(){
+CFTracker.addBid = CFTracker.addBid || {};
+CFTracker.addBid.initialize = function(){
     $(function() {
 		init();
 	});
