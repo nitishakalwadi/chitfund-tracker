@@ -81,7 +81,7 @@ CFTracker.dashboard.initialize = function(){
 	
 	function initDashboardListTap(){
 		$("#dashboardListView").unbind().on("tap", "li", function(){
-			var chitId = $(this).data("chit-id");alert(chitId);
+			var chitId = $(this).data("chit-id");
 			CFTracker.data.chitId = chitId;
 			$.mobile.navigate( "#chitDetails", { transition : "flip"});
 		});
@@ -178,7 +178,51 @@ CFTracker.chitDetails.initialize = function(){
 	});
 
 	function init(){
-		alert(CFTracker.data.chitId);
+		initData();
 		
+	}
+	
+	function initData(){
+		var db = CFTracker.db;
+		var chitId = CFTracker.data.chitId;
+		
+		var sql = "SELECT * from chit_master where id = " + chitId;
+		db.transaction(function(transaction){
+			transaction.executeSql(sql, 
+				[], 
+				populateMasterData, 
+				function(err){
+                    alert("some error "+err);
+                });
+		});
+		
+		function populateMasterData(transaction, results){
+			for (var i = 0; i <= results.rows.length; i++) {
+        		var row = results.rows.item(i);
+        		addMasterData(row);
+        	}
+		}
+		
+		function addMasterData(data){
+			var markup = "";
+			markup += "<tr>";
+			markup += "<td>Chit Name: </td>";
+			markup += "<td>" + data['chitname'] + "</td>";
+			markup += "</tr>";
+			markup += "<tr>";
+			markup += "<td>Monthly Premium: </td>";
+			markup += "<td>" + data['monthly_premium'] + "</td>";
+			markup += "</tr>";
+			markup += "<tr>";
+			markup += "<td>Months: </td>";
+			markup += "<td>" + data['months'] + "</td>";
+			markup += "</tr>";
+			markup += "<tr>";
+			markup += "<td>Commission: </td>";
+			markup += "<td>" + data['commission'] + "</td>";
+			markup += "</tr>";
+			
+			$("#chitDetailsTable").html(markup);
+		}
 	}
 }
