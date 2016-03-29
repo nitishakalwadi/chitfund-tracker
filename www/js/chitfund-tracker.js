@@ -205,22 +205,10 @@ CFTracker.chitDetails.initialize = function(){
 		
 		function addMasterData(data){
 			var markup = "";
-			markup += "<tr>";
-			markup += "<td>Chit Name: </td>";
-			markup += "<td>" + data['chitname'] + "</td>";
-			markup += "</tr>";
-			markup += "<tr>";
-			markup += "<td>Monthly Premium: </td>";
-			markup += "<td>" + data['monthly_premium'] + "</td>";
-			markup += "</tr>";
-			markup += "<tr>";
-			markup += "<td>Months: </td>";
-			markup += "<td>" + data['months'] + "</td>";
-			markup += "</tr>";
-			markup += "<tr>";
-			markup += "<td>Commission: </td>";
-			markup += "<td>" + data['commission'] + "</td>";
-			markup += "</tr>";
+			markup += "<div>Chit Name: " + data['chitname'] + "</div>";
+			markup += "<div>Monthly Premium: " + data['monthly_premium'] + "</div>";
+			markup += "<div>Months: " + data['months'] + "</div>";
+			markup += "<div>Commission: " + data['commission'] + "</div>";
 			
 			$("#chitDetailsTable").html(markup);
 		}
