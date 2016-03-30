@@ -219,8 +219,8 @@ CFTracker.chitDetails.initialize = function(){
 
 CFTracker = window.CFTracker || {};
 CFTracker.data = CFTracker.data || {};
-CFTracker.addBidDialog = CFTracker.addBidDialog || {};
-CFTracker.addBidDialog.initialize = function(){
+CFTracker.addBid = CFTracker.addBidDialog || {};
+CFTracker.addBid.initialize = function(){
     $(function() {
 		init();
 	});
@@ -255,7 +255,7 @@ CFTracker.addBidDialog.initialize = function(){
 	}
 	
 	function initDialogData(data){
-		$("#addBidDialog .main").html("");
+		$("#addBid .main").html("");
 		
 		var markup = "";
 		markup += "<div data-role='fieldcontain'>";
@@ -265,6 +265,6 @@ CFTracker.addBidDialog.initialize = function(){
 		markup += "Monthly Premium: " + data['monthly_premium'];
 		markup += "</div>";
 		
-		$("#addBidDialog .main").append(markup);
+		$("#addBid .main").append(markup);
 	}
 }

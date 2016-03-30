@@ -66,7 +66,7 @@
             <form id="chitDetailsForm">
             <div data-role="header">
 	            <h1>Chit Details</h1>
-	            <a id="addNewBid" href="#addBidDialog" data-icon="plus" class="ui-btn-right" data-transition="pop" data-rel="dialog">Add Bid</a>
+	            <a id="addNewBid" href="#addBid" data-icon="plus" class="ui-btn-right" data-transition="flip" >Add Bid</a>
             </div>
             <div>
                 <div id="chitDetailsDiv" data-role="fieldcontain">
@@ -76,7 +76,7 @@
 	        </form>
         </div>
         
-        <div data-role="page" id="addBidDialog" data-close-btn="right">
+        <div data-role="page" id="addBid" data-close-btn="right">
             <div data-role="header">
                 <h2>Add Bid</h2>
             </div>
@@ -100,8 +100,8 @@
     $(document).on("pageshow", "#chitDetails", function() {
         CFTracker.chitDetails.initialize();
     });
-    $(document).on("pageshow", "#addBidDialog", function() {
-        CFTracker.addBidDialog.initialize();
+    $(document).on("pageshow", "#addBid", function() {
+        CFTracker.addBid.initialize();
     });
     </script>
 </html>
