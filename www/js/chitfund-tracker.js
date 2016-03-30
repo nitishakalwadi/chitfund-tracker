@@ -101,7 +101,17 @@ CFTracker.dashboard.initialize = function(){
 				transaction.executeSql("DELETE FROM chit_transaction WHERE chit_id=?",[chitId]);
 			});
 			$("#dashboardPopUp").popup("close");
-			history.back();
+
+			$.mobile.changePage(
+		  		window.location.href,
+  				{
+    				allowSamePageTransition : true,
+    				transition              : 'none',
+    				showLoadMsg             : false,
+    				reloadPage              : true
+   				}
+			);
+
 		});
 		
 		// $("#dashboardListView").unbind("taphold").on("taphold", "li", function(){
