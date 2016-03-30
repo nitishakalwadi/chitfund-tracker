@@ -270,7 +270,7 @@ CFTracker.chitDetails.initialize = function(){
 	
 	function initBtns(){
 		$("#bidDetails").unbind().on("tap", ".delete-bid", function(event){
-			event.stopPropagation();
+			event.preventDefault()
 			var $li = $(this).parents("li");
 			var bidId = $li.data("bid-id");
 			var db = CFTracker.db;
