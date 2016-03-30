@@ -98,19 +98,26 @@ CFTracker.dashboard.initialize = function(){
 			CFTracker.data.chitId = chitId;
 			var db = CFTracker.db;
 			db.transaction(function(transaction){
-				transaction.executeSql("DELETE FROM chit_transaction WHERE chit_id=?",[chitId]);
+				transaction.executeSql("DELETE FROM chit_transaction WHERE chit_id=?",[chitId],
+				function(){
+					alert("success");
+				},
+				function(){
+					alert("error");
+				}
+				);
 			});
 			$("#dashboardPopUp").popup("close");
 
-			// $.mobile.changePage(
-		 // 		window.location.href,
-  	// 			{
-   // 				allowSamePageTransition : true,
-   // 				transition              : 'none',
-   // 				showLoadMsg             : false,
-   // 				reloadPage              : true
-   //				}
-			// );
+			$.mobile.changePage(
+		  		window.location.href,
+  				{
+    				allowSamePageTransition : true,
+    				transition              : 'none',
+    				showLoadMsg             : false,
+    				reloadPage              : true
+   				}
+			);
 
 		});
 		
