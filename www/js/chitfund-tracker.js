@@ -105,22 +105,7 @@ CFTracker.dashboard.initialize = function(){
 			$("#dashboardPopUp").popup("close");
 			var selector = "#dashboardListView #"+chitId;
 			$(selector).remove();
-			
-			// $.mobile.changePage(
-		 // 		window.location.href,
-  	// 			{
-   // 				allowSamePageTransition : true,
-   // 				transition              : 'none',
-   // 				showLoadMsg             : false,
-   // 				reloadPage              : true
-   //				}
-			// );
-
 		});
-		
-		// $("#dashboardListView").unbind("taphold").on("taphold", "li", function(){
-		// 	alert("taphold");
-		// });
 	}
 	
 }
@@ -271,9 +256,9 @@ CFTracker.chitDetails.initialize = function(){
 	
 		function initBidDetailsData(data){
 			var markup = "";
-        	markup += "<div>";
-        	markup += data['bid_amount'];
-        	markup += "</div>";
+        	markup += "<li id='"+data['id']+"' data-bid-id='"+data['id']+"'>";
+        	markup += "<a href='#'>"+ data['bid_amount'] +"</a>";
+        	markup += "</li>";
         	
         	$("#bidDetailsDiv").append(markup);
 		}
