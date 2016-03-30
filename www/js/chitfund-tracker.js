@@ -24,7 +24,7 @@ CFTracker.dashboard.initialize = function(){
 	        //transaction.executeSql("DROP TABLE IF EXISTS chit_master");
 	        //transaction.executeSql("DROP TABLE IF EXISTS chit_transaction");
 	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_master (id INTEGER PRIMARY KEY, chitname VARCHAR, monthly_premium INTEGER, months INTEGER, commission INTEGER);");
-	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_transaction (id INTEGER PRIMARY KEY, chit_id INTEGER, bid_amount INTEGER);");
+	        transaction.executeSql("CREATE TABLE IF NOT EXISTS chit_transaction (id INTEGER PRIMARY KEY, chit_id INTEGER, bid_amount INTEGER, bid_number INTEGER);");
 	    });
 	    
 	    db.transaction(function(transaction){
@@ -227,7 +227,7 @@ CFTracker.chitDetails.initialize = function(){
 			markup += "<div>Chit Name: " + data['chitname'] + "</div>";
 			markup += "<div>Monthly Premium: " + data['monthly_premium'] + "</div>";
 			markup += "<div>Months: " + data['months'] + "</div>";
-			markup += "<div>Commission: " + data['commission'] + "</div>";
+			markup += "<div>Commission: " + data['commission'] + "%</div>";
 			
 			$("#chitDetailsDiv").html(markup);
 		}
@@ -295,6 +295,7 @@ CFTracker.addBid.initialize = function(){
 	function init(){
 		clearFormFields();
 		initData();
+		initBidData();
 		initBtns();
 	}
 	
@@ -341,6 +342,33 @@ CFTracker.addBid.initialize = function(){
 		$("#addBid .chit-details").html(markup);
 		
 	}	
+	
+	function initBidData(){
+		var db = CFTracker.db;
+		var chitId = CFTracker.data.chitId;
+		
+		var sql = "SELECT count(*) as total_bids from chit_transaction where chit_id = " + chitId;
+		db.transaction(function(transaction){
+			transaction.executeSql(sql, 
+				[], 
+				initBidCount, 
+				function(err){
+                    alert("some error "+err);
+                });
+		});
+	}
+	
+	function initBidCount(transaction, results){
+		for (var i = 0; i <= results.rows.length; i++) {
+       		var row = results.rows.item(i);
+       		initBidCountData(row);
+		}
+    }
+    
+    function initBidCountData(data){
+    	var totalBids = data['total_bids'];
+    	$("#bidnumber").val(totalBids);
+    }
 	
 	function initBtns(){
 		$("#addBid #save").unbind().on("tap", function(){
