@@ -71,7 +71,7 @@ CFTracker.dashboard.initialize = function(){
         
         function addListItem(data){
         	var markup = "";
-        	markup += "<li data-chit-id='"+data['id']+"'>";
+        	markup += "<li id='"+data['id']+"' data-chit-id='"+data['id']+"'>";
         	markup += "<a href='#'>"+ data['chitname'] +"</a>";
         	markup += "</li>";
         	
@@ -99,26 +99,22 @@ CFTracker.dashboard.initialize = function(){
 			var chitId = CFTracker.data.chitId;
 			var db = CFTracker.db;
 			db.transaction(function(transaction){
-				transaction.executeSql("DELETE FROM chit_transaction WHERE chit_id=?",[chitId],
-				function(){
-					alert("success");
-				},
-				function(){
-					alert("error");
-				}
-				);
+				transaction.executeSql("DELETE FROM chit_master WHERE chit_id=?",[chitId]);
+				transaction.executeSql("DELETE FROM chit_transaction WHERE chit_id=?",[chitId]);
 			});
 			$("#dashboardPopUp").popup("close");
-
-			$.mobile.changePage(
-		  		window.location.href,
-  				{
-    				allowSamePageTransition : true,
-    				transition              : 'none',
-    				showLoadMsg             : false,
-    				reloadPage              : true
-   				}
-			);
+			var selector = "#dashboardListView #"+chitId;
+			$(selector).remove();
+			
+			// $.mobile.changePage(
+		 // 		window.location.href,
+  	// 			{
+   // 				allowSamePageTransition : true,
+   // 				transition              : 'none',
+   // 				showLoadMsg             : false,
+   // 				reloadPage              : true
+   //				}
+			// );
 
 		});
 		
