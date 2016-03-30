@@ -227,6 +227,7 @@ CFTracker.addBid.initialize = function(){
 
 	function init(){
 		initData();
+		initBtns();
 	}
 	
 	function initData(){
@@ -256,13 +257,14 @@ CFTracker.addBid.initialize = function(){
 	
 	function initAddBidData(data){
 		$("#addBid .chit-details").html("");
+		var chitpool = data['monthly_premium'] * data['months'];
 		
 		var markup = "";
 		markup += "<div data-role='fieldcontain'>";
 		markup += "Chit Name: " + data['chitname'];
 		markup += "</div>";
 		markup += "<div data-role='fieldcontain'>";
-		markup += "Monthly Premium: " + data['monthly_premium'];
+		markup += "Total Chit Amount: " + chitpool;
 		markup += "</div>";
 		
 		$("#addBid .chit-details").html(markup);
@@ -278,5 +280,11 @@ CFTracker.addBid.initialize = function(){
   //      markup += "</div>";
         
   //      $("#addBid .bid-input").html(markup);
-	}		
+	}	
+	
+	function initBtns(){
+		$("#addBid #save").on("tap", function(){
+			alert(123);
+		});
+	}
 }
