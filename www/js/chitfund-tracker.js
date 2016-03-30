@@ -89,7 +89,7 @@ CFTracker.dashboard.initialize = function(){
 			$.mobile.navigate( "#chitDetails", { transition : "flip"});
 		})
 		.on("taphold", "li", function(){
-			alert("taphold");
+			$("#dashboardPopUp").popup("open");
 		});
 		
 		// $("#dashboardListView").unbind("taphold").on("taphold", "li", function(){
