@@ -93,6 +93,10 @@ CFTracker.dashboard.initialize = function(){
 			return false;
 		});
 		
+		$("#dashboardPopUp #deleteChit").unbind().on("tap", function(){
+			$("#dashboardConfirmPopUp").popup("open");
+		});
+		
 		// $("#dashboardListView").unbind("taphold").on("taphold", "li", function(){
 		// 	alert("taphold");
 		// });

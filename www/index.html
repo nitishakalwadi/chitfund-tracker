@@ -33,8 +33,19 @@
             
             <div data-role="popup" id="dashboardPopUp">
 	            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-    	        <div>
-	                This is a pop up
+    	        <div style="padding:20px">
+	                <h3 id="deleteChit">Delete</h3>
+	            </div>
+            </div>
+            
+            <div data-role="popup" id="dashboardConfirmPopUp">
+	            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    	        <div style="padding:20px">
+	                <h3>Are you sure you want to delete this chit?</h3>
+	                <div data-role="fieldcontain">
+                        <a id="no" data-icon="delete" class="ui-btn-left" data-inline="true" data-role="button">No</a>
+                        <a id="yes" data-icon="check" class="ui-btn-right" data-inline="true" data-role="button">Yes</a>
+                    </div>
 	            </div>
             </div>
         
