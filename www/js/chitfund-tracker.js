@@ -248,6 +248,7 @@ CFTracker.chitDetails.initialize = function(){
 		
 		function initBidDetails(transaction, results){
 			$("#bidDetailsDiv").html("");
+			$("#bidDetailsDiv").listview( "refresh" );
 			for (var i = 0; i <= results.rows.length; i++) {
        			var row = results.rows.item(i);
        			initBidDetailsData(row);
@@ -261,6 +262,7 @@ CFTracker.chitDetails.initialize = function(){
         	markup += "</li>";
         	
         	$("#bidDetailsDiv").append(markup);
+        	$("#bidDetailsDiv").listview( "refresh" );
 		}
 	}
 	
