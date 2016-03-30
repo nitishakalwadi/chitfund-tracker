@@ -149,7 +149,7 @@ CFTracker.addChit.initialize = function(){
 	// }
 	
 	function initBtns(){
-		$("#save").on("tap", function(){
+		$("#addChit #save").unbind().on("tap", function(){
 			var chitname = $("#chitname").val();
 			var monthly_premium = $("#monthlyPremium").val();
 			var months = $("#months").val();
@@ -237,25 +237,25 @@ CFTracker.addBid.initialize = function(){
 		db.transaction(function(transaction){
 			transaction.executeSql(sql, 
 				[], 
-				initDialog, 
+				initAddBid, 
 				function(err){
                     alert("some error "+err);
                 });
 		});
 	}
 	
-	function initDialog(transaction, results){
+	function initAddBid(transaction, results){
 		for (var i = 0; i <= results.rows.length; i++) {
        		var row = results.rows.item(i);
-       		initDialogData(row);
+       		initAddBidData(row);
         		
         }
         	
 		
 	}
 	
-	function initDialogData(data){
-		$("#addBid .main").html("");
+	function initAddBidData(data){
+		$("#addBid .chit-details").html("");
 		
 		var markup = "";
 		markup += "<div data-role='fieldcontain'>";
@@ -265,6 +265,18 @@ CFTracker.addBid.initialize = function(){
 		markup += "Monthly Premium: " + data['monthly_premium'];
 		markup += "</div>";
 		
-		$("#addBid .main").append(markup);
-	}
+		$("#addBid .chit-details").html(markup);
+		
+		markup = "";
+		markup += "<div data-role='fieldcontain'>";
+        markup += "<label for='commission'>Commission(%):</label>";
+        markup += "<input type='number' name='commission' id='commission' value='' maxlength='32' />";
+        markup += "</div>";
+        markup += "<div data-role='fieldcontain'>";
+        markup += "<a id='cancel' data-icon='delete' class='ui-btn-left' data-inline='true' data-rel='back' data-role='button'>Cancel</a>";
+        markup += "<a id='save' data-icon='check' class='ui-btn-right' data-inline='true' data-role='button'>Save</a>";
+        markup += "</div>";
+        
+        $("#addBid .bid-input").html(markup);
+	}		
 }
