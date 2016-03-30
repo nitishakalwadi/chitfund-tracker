@@ -1,5 +1,5 @@
 $.ajaxSetup({ cache: false });
-//$.event.special.tap.emitTapOnTaphold = false;
+$.event.special.tap.emitTapOnTaphold = false;
 
 var CFTracker = window.CFTracker || {};
 CFTracker.data = CFTracker.data || {};
