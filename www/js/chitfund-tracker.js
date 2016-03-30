@@ -99,7 +99,7 @@ CFTracker.dashboard.initialize = function(){
 			var chitId = CFTracker.data.chitId;
 			var db = CFTracker.db;
 			db.transaction(function(transaction){
-				transaction.executeSql("DELETE FROM chit_master WHERE chit_id=?",[chitId]);
+				transaction.executeSql("DELETE FROM chit_master WHERE id=?",[chitId]);
 				transaction.executeSql("DELETE FROM chit_transaction WHERE chit_id=?",[chitId]);
 			});
 			$("#dashboardPopUp").popup("close");
