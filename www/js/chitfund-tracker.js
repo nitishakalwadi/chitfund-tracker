@@ -109,7 +109,7 @@ CFTracker.addChit.initialize = function(){
 	}
 	
 	function clearFormFields(){
-		$("#index input").val("");
+		$("#addChit input").val("");
 	}
 	
 	// function initValidation(){
@@ -149,7 +149,7 @@ CFTracker.addChit.initialize = function(){
 	// }
 	
 	function initBtns(){
-		$("#addChit #save").unbind().on("tap", function(){
+		$("#addChit #save").on("tap", function(){
 			var chitname = $("#chitname").val();
 			var monthly_premium = $("#monthlyPremium").val();
 			var months = $("#months").val();
