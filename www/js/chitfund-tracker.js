@@ -272,12 +272,12 @@ CFTracker.chitDetails.initialize = function(){
 		$("#bidDetails").unbind().on("tap", ".delete-bid", function(event){
 			event.stopPropagation();
 			var $li = $(this).parents("li");
-			var bidId = $li.data("bid-id");alert(bidId);
+			var bidId = $li.data("bid-id");
 			var db = CFTracker.db;
-			// db.transaction(function(transaction){
-			// 	transaction.executeSql("DELETE FROM chit_transaction WHERE id=?",[bidId]);
-			// });
-			// $li.remove();
+			db.transaction(function(transaction){
+				transaction.executeSql("DELETE FROM chit_transaction WHERE id=?",[bidId]);
+			});
+			$li.remove();
 		});
 	}
 	
