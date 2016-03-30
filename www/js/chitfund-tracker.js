@@ -257,7 +257,7 @@ CFTracker.chitDetails.initialize = function(){
 	
 		function initBidDetailsData(data){
 			var markup = "";
-        	markup += "<li id='"+data['id']+"' data-bid-id='"+data['id']+"'>";
+        	markup += "<li data-icon='false' id='"+data['id']+"' data-bid-id='"+data['id']+"'>";
         	markup += "<a href='#'>"+ data['bid_amount'] +"</a>";
         	markup += "</li>";
         	
