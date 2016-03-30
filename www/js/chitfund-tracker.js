@@ -102,15 +102,15 @@ CFTracker.dashboard.initialize = function(){
 			});
 			$("#dashboardPopUp").popup("close");
 
-			$.mobile.changePage(
-		  		window.location.href,
-  				{
-    				allowSamePageTransition : true,
-    				transition              : 'none',
-    				showLoadMsg             : false,
-    				reloadPage              : true
-   				}
-			);
+			// $.mobile.changePage(
+		 // 		window.location.href,
+  	// 			{
+   // 				allowSamePageTransition : true,
+   // 				transition              : 'none',
+   // 				showLoadMsg             : false,
+   // 				reloadPage              : true
+   //				}
+			// );
 
 		});
 		
