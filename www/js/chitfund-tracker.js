@@ -94,8 +94,14 @@ CFTracker.dashboard.initialize = function(){
 		});
 		
 		$("#dashboardPopUp #deleteChit").unbind().on("tap", function(){
-			alert(123456);
-			// $("#dashboardConfirmPopUp").popup("open");
+			var chitId = $(this).data("chit-id");
+			CFTracker.data.chitId = chitId;
+			var db = CFTracker.db;
+			db.transaction(function(transaction){
+				transaction.executeSql("DELETE FROM chit_transaction WHERE chit_id=?",[chitId]);
+			});
+			$("#dashboardPopUp").popup("close");
+			history.back();
 		});
 		
 		// $("#dashboardListView").unbind("taphold").on("taphold", "li", function(){
