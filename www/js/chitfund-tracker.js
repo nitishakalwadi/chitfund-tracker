@@ -65,7 +65,7 @@ CFTracker.dashboard.initialize = function(){
         	$("#dashboardListView").listview( "refresh" );
         	for (var i = 0; i <= results.rows.length; i++) {
         		var row = results.rows.item(i);
-        		addListItem(row);
+        		//addListItem(row);
         		
         		var markup = "";
         		markup += "<li id='"+row['id']+"' data-chit-id='"+row['id']+"'>";
@@ -77,15 +77,15 @@ CFTracker.dashboard.initialize = function(){
         	}
         }
         
-        function addListItem(data){
-        	// var markup = "";
-        	// markup += "<li id='"+data['id']+"' data-chit-id='"+data['id']+"'>";
-        	// markup += "<a href='#'>"+ data['chitname'] +"</a>";
-        	// markup += "</li>";
+        // function addListItem(data){
+        // 	var markup = "";
+        // 	markup += "<li id='"+data['id']+"' data-chit-id='"+data['id']+"'>";
+        // 	markup += "<a href='#'>"+ data['chitname'] +"</a>";
+        // 	markup += "</li>";
         	
-        	// $("#dashboardListView").append(markup);
-        	// $("#dashboardListView").listview( "refresh" );
-        }
+        // 	$("#dashboardListView").append(markup);
+        // 	$("#dashboardListView").listview( "refresh" );
+        // }
 	}
 	
 	function initDashboardListTap(){
