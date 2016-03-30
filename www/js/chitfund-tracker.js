@@ -219,7 +219,7 @@ CFTracker.chitDetails.initialize = function(){
 		var db = CFTracker.db;
 		var chitId = CFTracker.data.chitId;
 		
-		var sql = "SELECT * from chit_details where chit_id = " + chitId;
+		var sql = "SELECT * from chit_transaction where chit_id = " + chitId;
 		db.transaction(function(transaction){
 			transaction.executeSql(sql, 
 				[], 
@@ -311,7 +311,7 @@ CFTracker.addBid.initialize = function(){
 			
 			var db = CFTracker.db;
 			db.transaction(function(transaction){
-				transaction.executeSql("INSERT INTO chit_details (chit_id, bid_amount) values (?,?);",insertArr);
+				transaction.executeSql("INSERT INTO chit_transaction (chit_id, bid_amount) values (?,?);",insertArr);
 			});
 			//$.mobile.navigate( "#index", { transition : "flip"});
 			history.back();
