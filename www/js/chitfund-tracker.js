@@ -89,13 +89,14 @@ CFTracker.dashboard.initialize = function(){
 			$.mobile.navigate( "#chitDetails", { transition : "flip"});
 		})
 		.on("taphold", "li", function(){
+			var chitId = $(this).data("chit-id");
+			CFTracker.data.chitId = chitId;
 			$("#dashboardPopUp").popup("open");
 			return false;
 		});
 		
 		$("#dashboardPopUp #deleteChit").unbind().on("tap", function(){
-			var chitId = $(this).data("chit-id");
-			CFTracker.data.chitId = chitId;
+			var chitId = CFTracker.data.chitId;
 			var db = CFTracker.db;
 			db.transaction(function(transaction){
 				transaction.executeSql("DELETE FROM chit_transaction WHERE chit_id=?",[chitId],
