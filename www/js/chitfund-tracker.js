@@ -1,4 +1,5 @@
 $.ajaxSetup({ cache: false });
+$.event.special.tap.emitTapOnTaphold = false;
 
 var CFTracker = window.CFTracker || {};
 CFTracker.data = CFTracker.data || {};
@@ -86,9 +87,9 @@ CFTracker.dashboard.initialize = function(){
 			$.mobile.navigate( "#chitDetails", { transition : "flip"});
 		});
 		
-		// $("#dashboardListView").unbind().on("taphold", "li", function(){
-		// 	alert("taphold");
-		// });
+		$("#dashboardListView").unbind().on("taphold", "li", function(){
+			alert("taphold");
+		});
 	}
 	
 }
@@ -259,8 +260,13 @@ CFTracker.addBid.initialize = function(){
 	});
 
 	function init(){
+		clearFormFields();
 		initData();
 		initBtns();
+	}
+	
+	function clearFormFields(){
+		$("#addBid input").val("");
 	}
 	
 	function initData(){
