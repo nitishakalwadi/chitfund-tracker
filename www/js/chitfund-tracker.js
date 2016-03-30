@@ -260,7 +260,7 @@ CFTracker.chitDetails.initialize = function(){
 			var markup = "";
         	markup += "<li data-icon='false' id='"+data['id']+"' data-bid-id='"+data['id']+"'>";
         	markup += "<a href='#'>"+ data['bid_amount'] +"</a>";
-        	markup += "<a href='#' class='delete-bid ui-btn ui-shadow ui-icon-delete ui-btn-icon-notext ui-btn-inline'>Delete</a>";
+        	markup += "<a href='#' class='delete-bid ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-inline'>Delete</a>";
         	markup += "</li>";
         	
         	$("#bidDetails").append(markup);
@@ -270,7 +270,13 @@ CFTracker.chitDetails.initialize = function(){
 	
 	function initBtns(){
 		$("#bidDetails").unbind().on("tap", ".delete-bid", function(){
-			alert(123456);
+			var $li = $(this).parents("li");
+			var bidId = $li.data("bid-id");
+			var db = CFTracker.db;
+			db.transaction(function(transaction){
+				transaction.executeSql("DELETE FROM chit_transaction WHERE id=?",[bidId]);
+			});
+			$li.remove();
 		});
 	}
 	
