@@ -178,10 +178,11 @@ CFTracker.chitDetails.initialize = function(){
 	});
 
 	function init(){
-		initData();
+		initChitData();
+		initChitDetailsData();
 	}
 	
-	function initData(){
+	function initChitData(){
 		var db = CFTracker.db;
 		var chitId = CFTracker.data.chitId;
 		
@@ -214,6 +215,38 @@ CFTracker.chitDetails.initialize = function(){
 		}
 	}
 	
+	function initChitDetailsData(){
+		var db = CFTracker.db;
+		var chitId = CFTracker.data.chitId;
+		
+		var sql = "SELECT * from chit_details where chit_id = " + chitId;
+		db.transaction(function(transaction){
+			transaction.executeSql(sql, 
+				[], 
+				initBidDetails, 
+				function(err){
+                    alert("some error "+err);
+                });
+		});
+		
+		function initBidDetails(transaction, results){
+			$("#bidDetailsDiv").html("");
+			for (var i = 0; i <= results.rows.length; i++) {
+       			var row = results.rows.item(i);
+       			initBidDetailsData(row);
+    		}	
+		}
+	
+		function initBidDetailsData(data){
+			var markup = "";
+        	markup += "<div>";
+        	markup += data['bid_amount'];
+        	markup += "</div>";
+        	
+        	$("#bidDetailsDiv").html(markup);
+		}
+	}
+	
 }
 
 
@@ -243,6 +276,7 @@ CFTracker.addBid.initialize = function(){
                     alert("some error "+err);
                 });
 		});
+		
 	}
 	
 	function initAddBid(transaction, results){
@@ -250,10 +284,8 @@ CFTracker.addBid.initialize = function(){
        		var row = results.rows.item(i);
        		initAddBidData(row);
         		
-        }
-        	
-		
-	}
+    	}
+    }
 	
 	function initAddBidData(data){
 		$("#addBid .chit-details").html("");
@@ -269,22 +301,20 @@ CFTracker.addBid.initialize = function(){
 		
 		$("#addBid .chit-details").html(markup);
 		
-		// markup = "";
-		// markup += "<div data-role='fieldcontain'>";
-  //      markup += "<label for='commission'>Commission(%):</label>";
-  //      markup += "<input type='number' name='commission' id='commission' value='' maxlength='32' />";
-  //      markup += "</div>";
-  //      markup += "<div data-role='fieldcontain'>";
-  //      markup += "<a id='cancel' data-icon='delete' class='ui-btn-left' data-inline='true' data-rel='back' data-role='button'>Cancel</a>";
-  //      markup += "<a id='save' data-icon='check' class='ui-btn-right' data-inline='true' data-role='button'>Save</a>";
-  //      markup += "</div>";
-        
-  //      $("#addBid .bid-input").html(markup);
 	}	
 	
 	function initBtns(){
-		$("#addBid #save").on("tap", function(){
-			alert(123);
+		$("#addBid #save").unbind().on("tap", function(){
+			var bidAmount = $("#bidamount").val();
+			var chitId = CFTracker.data.chitId;
+			var insertArr = [chitId, bidAmount];
+			
+			var db = CFTracker.db;
+			db.transaction(function(transaction){
+				transaction.executeSql("INSERT INTO chit_details (chit_id, bid_amount) values (?,?);",insertArr);
+			});
+			//$.mobile.navigate( "#index", { transition : "flip"});
+			history.back();
 		});
 	}
 }
