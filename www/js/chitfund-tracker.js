@@ -260,7 +260,7 @@ CFTracker.chitDetails.initialize = function(){
 			var markup = "";
         	markup += "<li data-icon='false' id='"+data['id']+"' data-bid-id='"+data['id']+"'>";
         	markup += "<a href='#'>"+ data['bid_amount'] +"</a>";
-        	markup += "<a href='#' class='delete-bid ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline'>Delete</a>";
+        	markup += "<a href='#' class='delete-bid ui-btn ui-shadow ui-icon-delete ui-btn-icon-notext ui-btn-inline'>Delete</a>";
         	markup += "</li>";
         	
         	$("#bidDetails").append(markup);
