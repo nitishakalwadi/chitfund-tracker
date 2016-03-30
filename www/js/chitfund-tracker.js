@@ -373,12 +373,13 @@ CFTracker.addBid.initialize = function(){
 	function initBtns(){
 		$("#addBid #save").unbind().on("tap", function(){
 			var bidAmount = $("#bidamount").val();
+			var bidNumber = $("#bidnumber").val();
 			var chitId = CFTracker.data.chitId;
-			var insertArr = [chitId, bidAmount];
+			var insertArr = [chitId, bidAmount, bidNumber];
 			
 			var db = CFTracker.db;
 			db.transaction(function(transaction){
-				transaction.executeSql("INSERT INTO chit_transaction (chit_id, bid_amount) values (?,?);",insertArr);
+				transaction.executeSql("INSERT INTO chit_transaction (chit_id, bid_amount, bid_number) values (?,?,?);",insertArr);
 			});
 			//$.mobile.navigate( "#index", { transition : "flip"});
 			history.back();
