@@ -197,6 +197,7 @@ CFTracker.chitDetails.initialize = function(){
 	function init(){
 		initChitData();
 		initChitDetailsData();
+		initBtns();
 	}
 	
 	function initChitData(){
@@ -247,8 +248,8 @@ CFTracker.chitDetails.initialize = function(){
 		});
 		
 		function initBidDetails(transaction, results){
-			$("#bidDetailsDiv").html("");
-			$("#bidDetailsDiv").listview( "refresh" );
+			$("#bidDetails").html("");
+			$("#bidDetails").listview( "refresh" );
 			for (var i = 0; i <= results.rows.length; i++) {
        			var row = results.rows.item(i);
        			initBidDetailsData(row);
@@ -259,11 +260,18 @@ CFTracker.chitDetails.initialize = function(){
 			var markup = "";
         	markup += "<li data-icon='false' id='"+data['id']+"' data-bid-id='"+data['id']+"'>";
         	markup += "<a href='#'>"+ data['bid_amount'] +"</a>";
+        	markup += "<a href='#' class='delete-bid ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline'>Delete</a>";
         	markup += "</li>";
         	
-        	$("#bidDetailsDiv").append(markup);
-        	$("#bidDetailsDiv").listview( "refresh" );
+        	$("#bidDetails").append(markup);
+        	$("#bidDetails").listview( "refresh" );
 		}
+	}
+	
+	function initBtns(){
+		$("#bidDetails").unbind().on("tap", ".delete-bid", function(){
+			alert(123456);
+		});
 	}
 	
 }
