@@ -94,7 +94,8 @@ CFTracker.dashboard.initialize = function(){
 		});
 		
 		$("#dashboardPopUp #deleteChit").unbind().on("tap", function(){
-			$("#dashboardConfirmPopUp").popup("open");
+			alert(123456);
+			// $("#dashboardConfirmPopUp").popup("open");
 		});
 		
 		// $("#dashboardListView").unbind("taphold").on("taphold", "li", function(){
