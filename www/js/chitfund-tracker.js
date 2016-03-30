@@ -81,15 +81,20 @@ CFTracker.dashboard.initialize = function(){
 	}
 	
 	function initDashboardListTap(){
-		$("#dashboardListView").unbind("tap").on("tap", "li", function(){
+		$("#dashboardListView")
+		.unbind()
+		.on("tap", "li", function(){
 			var chitId = $(this).data("chit-id");
 			CFTracker.data.chitId = chitId;
 			$.mobile.navigate( "#chitDetails", { transition : "flip"});
-		});
-		
-		$("#dashboardListView").unbind("taphold").on("taphold", "li", function(){
+		})
+		.on("taphold", "li", function(){
 			alert("taphold");
 		});
+		
+		// $("#dashboardListView").unbind("taphold").on("taphold", "li", function(){
+		// 	alert("taphold");
+		// });
 	}
 	
 }
