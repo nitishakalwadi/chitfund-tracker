@@ -66,17 +66,25 @@ CFTracker.dashboard.initialize = function(){
         	for (var i = 0; i <= results.rows.length; i++) {
         		var row = results.rows.item(i);
         		addListItem(row);
+        		
+        		var markup = "";
+        		markup += "<li id='"+row['id']+"' data-chit-id='"+row['id']+"'>";
+        		markup += "<a href='#'>"+ row['chitname'] +"</a>";
+        		markup += "</li>";
+        	
+        		$("#dashboardListView").append(markup);
+        		$("#dashboardListView").listview( "refresh" );
         	}
         }
         
         function addListItem(data){
-        	var markup = "";
-        	markup += "<li id='"+data['id']+"' data-chit-id='"+data['id']+"'>";
-        	markup += "<a href='#'>"+ data['chitname'] +"</a>";
-        	markup += "</li>";
+        	// var markup = "";
+        	// markup += "<li id='"+data['id']+"' data-chit-id='"+data['id']+"'>";
+        	// markup += "<a href='#'>"+ data['chitname'] +"</a>";
+        	// markup += "</li>";
         	
-        	$("#dashboardListView").append(markup);
-        	$("#dashboardListView").listview( "refresh" );
+        	// $("#dashboardListView").append(markup);
+        	// $("#dashboardListView").listview( "refresh" );
         }
 	}
 	
