@@ -243,7 +243,7 @@ CFTracker.chitDetails.initialize = function(){
         	markup += data['bid_amount'];
         	markup += "</div>";
         	
-        	$("#bidDetailsDiv").html(markup);
+        	$("#bidDetailsDiv").append(markup);
 		}
 	}
 	
