@@ -55,8 +55,6 @@
         <div data-role="page" id="addChit">
             <form id="addchitForm">
             <div data-role="header">
-                <a id="addNewChit" href="#addChit" data-icon="plus" class="ui-btn-right" data-transition="flip">Add Chit</a>
-                <a id="cancel" data-icon="delete" class="ui-btn-left" data-inline="true" data-rel="back">Cancel</a>
 	            <h1>Add New Chit</h1>
 	        </div>
 	        <div>
@@ -77,6 +75,7 @@
                     <input type="number" name="commission" id="commission" value="" maxlength="32" />
                 </div>
                 <div data-role="fieldcontain">
+                    <a id="cancel" data-icon="delete" class="ui-btn-left" data-inline="true" data-rel="back" data-role="button">Cancel</a>
                     <a id="save" data-icon="check" class="ui-btn-right" data-inline="true" data-role="button">Save</a>
                 </div>
 	        </div>
@@ -87,6 +86,7 @@
         <div data-role="page" id="chitDetails">
             <form id="chitDetailsForm">
             <div data-role="header">
+                <a href='#' class='delete-bid ui-btn ui-icon-carat-l ui-btn-icon-notext ui-btn-inline' data-rel="back"></a>
 	            <h1>Chit Details</h1>
 	            <a id="addNewBid" href="#addBid" data-icon="plus" class="ui-btn-right" data-transition="flip" >Add Bid</a>
             </div>
@@ -98,7 +98,8 @@
     	            
 	            </ul>
 	            <div data-role="fieldcontain">
-                    <a id="back" data-icon="delete" data-inline="true" data-rel="back" data-role="button">Back</a>
+                    <a id="cancel" data-icon="delete" class="ui-btn-left" data-inline="true" data-rel="back" data-role="button">Cancel</a>
+                    <a id="save" data-icon="check" class="ui-btn-right" data-inline="true" data-role="button">Save</a>
                 </div>
 	        </div>
 	        </form>
