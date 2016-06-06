@@ -139,21 +139,6 @@
     //     CFTracker.dashboard.initialize();
     // }
     
-    function onDeviceReady() {
-        var admobid = {
-            banner: 'ca-app-pub-1219479140278686/6598011258'
-        }; 
-        AdMob.createBanner({
-                    adId: admobid.banner,
-                    position: AdMob.AD_POSITION.BOTTOM_CENTER,
-                    autoShow: true
-                });
-
-      
-    }
-
-    document.addEventListener("deviceready", onDeviceReady, false);
-    
     $(document).on("pageshow", "#index", function() {
         CFTracker.dashboard.initialize();
     });
