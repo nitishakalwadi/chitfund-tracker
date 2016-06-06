@@ -1,11 +1,6 @@
 $.ajaxSetup({ cache: false });
 $.event.special.tap.emitTapOnTaphold = false;
 
-if(AdMob) AdMob.createBanner( {
-    adId:admobid.banner, 
-    position:AdMob.AD_POSITION.BOTTOM_CENTER, 
-    autoShow:true} );
-
 var CFTracker = window.CFTracker || {};
 CFTracker.data = CFTracker.data || {};
 CFTracker.dashboard = CFTracker.dashboard || {};

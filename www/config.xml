@@ -70,7 +70,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     
-    <gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io" />
+    <plugin name="com.admob.google" spec="4.0.8" source="pgb" />
     
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
