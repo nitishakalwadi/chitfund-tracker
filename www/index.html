@@ -140,8 +140,8 @@
     // }
     
     function onDeviceReady() {
-      admob.initAdmob("ca-app-pub-1219479140278686~5121278059","ca-app-pub-1219479140278686/6598011258");
-      admob.showBanner(admob.BannerSize.BANNER, admob.Position.TOP_APP);
+      admob.createBannerView({publisherId: "ca-app-pub-1219479140278686"});
+
     }
 
     document.addEventListener("deviceready", onDeviceReady, false);
