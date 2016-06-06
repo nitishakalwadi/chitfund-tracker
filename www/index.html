@@ -140,8 +140,18 @@
     // }
     
     function onDeviceReady() {
-      admob.createBannerView({publisherId: "ca-app-pub-1219479140278686"});
+      document.removeEventListener('deviceready', onDeviceReady, false);
 
+      // Set AdMobAds options:
+      admob.setOptions({
+        publisherId:          "ca-app-pub-1219479140278686~5121278059",  // Required
+      });
+
+      // Start showing banners (atomatic when autoShowBanner is set to true)
+      admob.createBannerView();
+
+      // Request interstitial (will present automatically when autoShowInterstitial is set to true)
+      admob.requestInterstitial();
     }
 
     document.addEventListener("deviceready", onDeviceReady, false);
